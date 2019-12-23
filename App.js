@@ -11,14 +11,14 @@
 
 */
 
-import React from 'react';
-import { Platform, StatusBar, Image } from 'react-native';
-import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
-import { Block, GalioProvider } from 'galio-framework';
+import React from "react";
+import { Platform, StatusBar, Image } from "react-native";
+import { AppLoading } from "expo";
+import { Asset } from "expo-asset";
+import { Block, GalioProvider } from "galio-framework";
 
-import AppContainer from './navigation/Screens';
-import { Images, products, materialTheme } from './constants/';
+import AppContainer from "./navigation/Screens";
+import { Images, products, materialTheme } from "./constants/";
 
 // cache app images
 const assetImages = [
@@ -33,7 +33,7 @@ products.map(product => assetImages.push(product.image));
 
 function cacheImages(images) {
   return images.map(image => {
-    if (typeof image === 'string') {
+    if (typeof image === "string") {
       return Image.prefetch(image);
     } else {
       return Asset.fromModule(image).downloadAsync();
@@ -59,7 +59,7 @@ export default class App extends React.Component {
       return (
         <GalioProvider theme={materialTheme}>
           <Block flex>
-            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            {Platform.OS === "ios" && <StatusBar barStyle="default" />}
             <AppContainer />
           </Block>
         </GalioProvider>
@@ -68,9 +68,7 @@ export default class App extends React.Component {
   }
 
   _loadResourcesAsync = async () => {
-    return Promise.all([
-      ...cacheImages(assetImages),
-    ]);
+    return Promise.all([...cacheImages(assetImages)]);
   };
 
   _handleLoadingError = error => {

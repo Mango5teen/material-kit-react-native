@@ -1,0 +1,7 @@
+{
+  "breadcrumbs.enabled": true,
+  "editor.formatOnSave": true,
+  "prettier.printWidth": 128,
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "editor.fontSize": 13
+}
